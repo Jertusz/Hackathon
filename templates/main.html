@@ -65,7 +65,7 @@
                 </div>
                 <h2 class="recipe-title">{{ recipe.name }}</h2>
                 <div>
-                  <h3>4</h3>
+                  <h3>{{ recipe.people }}</h3>
                   <i data-feather="users"></i>
                 </div>
               </div>
@@ -74,17 +74,16 @@
 
               <div class="recipe-info-container">
                 <div class="info-column">
-                  <p>{{ recipe.ingredients_list }}</p>
+
+                  {% for ingridient in recipe.ingredients_list %}
+                  <p>{{ ingridient }}</p>
+                  {% endfor %}
                 </div>
                 <div class="info-column">
-                  <p>- wartość</p>
-                  <p>- wartość</p>
-                  <p>- wartość</p>
-                  <p>- wartość</p>
-                  <p>- wartość</p>
-                  <p>- wartość</p>
-                  <p>- wartość</p>
-                  <p>- wartość</p>
+                  {% for nutrient in recipe.nutrients %}
+                  <p>{{ nutrient }}:
+                  </p>
+                  {% endfor %}
                 </div>
               </div>
             </a>

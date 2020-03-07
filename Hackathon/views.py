@@ -12,12 +12,31 @@ def sample(request):
         form = queryForm(request.POST)
         products = form['q'].value().split(' ')
         products = ", ".join(products)
-
-
+        calories = form['calories'].value()
+        diet = form['diet'].value()
+        max_products = form['max_products'].value()
+        if diet == "0":
+            diet == "low-sodium"
+        elif diet == "1":
+            diet = "balanced"
+        elif diet == "2":
+            diet = "high-protein"
+        elif diet == "3":
+            diet = "high-fiver"
+        elif diet == "4":
+            diet = "low-fat"
+        elif diet == "5":
+            diet = "low-carb"
+        else:
+            diet = ""
+        calories = "0-" + str(calories)
     params = {
         "q": products,
         "app_id": app_id,
-        "app_key": api_key
+        "app_key": api_key,
+        "diet": diet,
+        "calories": calories,
+        "ingr": max_products
     }
     r = requests.get("https://api.edamam.com/search?",params=params)
     json_data = json.loads(r.text)
@@ -53,6 +72,8 @@ def parse_recipe(unparsed_recipe):
         print(p_recipe['nutrients'][shit])
 
     return p_recipe
+
+
 
 
 def index(request):

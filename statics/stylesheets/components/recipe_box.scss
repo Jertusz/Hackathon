@@ -1,57 +1,62 @@
-.recipe-box {
-  width: 100%;
+.recipe-box-container {
   margin: .5em;
-  padding: 1em;
-  border: 1px solid black;
-  @include flex;
-  @include flex-direction(column);
-  @include flex-wrap(wrap);
-  @include align-items(center);
-  justify-content: center;
-  width: 100%;
 
-  .recipe-head {
+  .recipe-box {
     @include flex;
-    @include flex-direction(row);
-    @include flex-wrap(nowrap);
+    @include flex-direction(column);
+    @include flex-wrap(wrap);
     @include align-items(center);
-    justify-content: space-between;
+    justify-content: center;
+    width: 100%;
+    padding: 1em;
+    border: 1px solid black;
     width: 100%;
 
-    div {
+    .recipe-head {
       @include flex;
       @include flex-direction(row);
       @include flex-wrap(nowrap);
-      flex-grow: 0;
+      @include align-items(center);
+      justify-content: space-between;
+      width: 100%;
 
-      svg {
-        align-self: center;
+      div {
+        @include flex;
+        @include flex-direction(row);
+        @include flex-wrap(nowrap);
+        flex-grow: 0;
+
+        svg {
+          align-self: center;
+        }
+      }
+
+      .recipe-title {
+        flex-grow: 2;
+        width: 100%;
+        text-align: center;
       }
     }
 
-    .recipe-title {
-      flex-grow: 2;
-      width: 100%;
-      text-align: center;
+    .recipe-thumbanail {
+      border: 1px solid black;
     }
-  }
 
-  .recipe-thumbanail {
-    border: 1px solid black;
-  }
+    .recipe-info-container {
+      @include flex;
+      @include flex-direction(row);
+      @include flex-wrap(nowrap);
+      @include align-items(stretch);
+      width: 100%;
 
-  .recipe-info-container {
-    @include flex;
-    @include flex-direction(row);
-    @include flex-wrap(nowrap);
-    @include align-items(stretch);
+      .info-column {
+        flex-grow: 1;
+        width: 50%;
+        margin: 0 1em;
 
-    .info-column {
-      flex-grow: 1;
-      width: 50%;
-
-      p {
-        line-height: 1.2;
+        p {
+          line-height: 1.2;
+        }
       }
     }
   }

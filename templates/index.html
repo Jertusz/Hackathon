@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <head>
-    {% load static %}
+  {% load static %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -16,14 +16,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-  <link href="{% static "stylesheets/style.min.css" %}"rel="stylesheet">
+  <link href="{% static "stylesheets/style.min.css" %}" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto|Spartan&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 
 
 </head>
 
-<body>
+<body class="landing-body">
 
   <!-- Hide before load -->
   <div style="visibility:visible; opacity: 1;" id="hideAll">
@@ -31,77 +31,30 @@
     <p id="js-message">Aby wyświetlić stronę musisz włączyć JavaScript</p>
   </div>
 
-  <div class=".container-fluid">
-
-
-
+  <img class="background-img" src="{% static "bg.jpg" %}">
+  <div class="container-fluid">
 
     <div class="row">
-      <div class="col-12">
-        <div class="title">
+      <div class="col-auto hero">
+        <div class="page-title">
+          <h1>SEARCH FOR RECIPE</h1>
+          <p>Type your ingridients</p>
+          <input type="text" id="query" name="query">
           <form action="test/" method="post">
             {% csrf_token %}
             {{ form }}
+            <div class="tags">
+                          </div>
             <input type="submit" value="OK">
           </form>
         </div>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-12">
-        <div class="recipes-container">
-
-
-          <div class="carousel">
-
-            <a class="recipe-box" href="https://www.kwestiasmaku.com/przepis/kurczak-z-warzywami" target="_blank">
-              <div class="recipe-head">
-                <div>
-                  <i data-feather="clock"></i>
-                  <h3>15min</h3>
-                </div>
-                <h2 class="recipe-title">Nazwa jedzonka 1</h2>
-                <div>
-                  <h3>4</h3>
-                  <i data-feather="users"></i>
-                </div>
-              </div>
-
-              <img class="recipe-thumbanail" src="https://f.wszelkieprzepisy.pl/images/8z31why6/kurczak-pieczony-z-czosnkiem-orig.png" alt="jedzonko_1" />
-
-              <div class="recipe-info-container">
-                <div class="info-column">
-                  <p>- składnik</p>
-                  <p>- składnik</p>
-                  <p>- składnik</p>
-                  <p>- składnik</p>
-                  <p>- składnik</p>
-                </div>
-                <div class="info-column">
-                  <p>- wartość</p>
-                  <p>- wartość</p>
-                  <p>- wartość</p>
-                  <p>- wartość</p>
-                  <p>- wartość</p>
-                  <p>- wartość</p>
-                  <p>- wartość</p>
-                  <p>- wartość</p>
-                </div>
-              </div>
-            </a>
-
-
-          </div>
-        </div>
-      </div>
-    </div>
 
 
 
-
-
-    <div class="row footer">
+    <div class="row footer footer-landing">
       <div class="col-12">
         <footer>
           <p>© 2020 Random Team</p>
@@ -111,12 +64,13 @@
   </div>
 
   <!-- JavaScript libraries and scripts -->
-  <script src="{% static "js/jquery-3.3.1.min.js" %}"type="application/javascript"></script>
-  <script src="{% static "js/feather.min.js" %}"type="application/javascript"></script>
-  <script src="{% static "js/slick.min.js" %}"type="application/javascript"></script>
+  <script src="{% static "js/jquery-3.3.1.min.js" %}" type="application/javascript"></script>
+  <script src="{% static "js/feather.min.js" %}" type="application/javascript"></script>
+  <script src="{% static "js/slick.min.js" %}" type="application/javascript"></script>
 
   <script src="{% static "js/load.js" %}" type="application/javascript"></script>
   <script src="{% static "js/carousel.js" %}" type="application/javascript"></script>
+  <script src="{% static "js/query.js" %}" type="application/javascript"></script>
 
   <script>
     feather.replace()

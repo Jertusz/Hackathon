@@ -32,79 +32,78 @@
   </div>
 
   <div class="container-fluid">
-    <<<<<<< HEAD=======>>>>>>> a42b43c72ba78e7fe9fc25e04ec6f9bcd4c1c3c1
 
-
-      <div class="row">
-        <div class="col-12">
-          <div class="title">
-            <form action="test/" method="post">
-              {% csrf_token %}
-              {{ form }}
-              <input type="submit" value="OK">
-            </form>
-          </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="title">
+          <form action="test/" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="OK">
+          </form>
         </div>
       </div>
+    </div>
 
-      <div class="row">
-        <div class="col-12">
+    <div class="row">
+      <div class="col-12">
 
-          <div class="recipes-container">
+        <div class="recipes-container">
 
 
-            <div class="carousel">
+          <div class="carousel">
 
-              {% for recipe in recipes %}
-              <div class="recipe-box-container">
-                <a class="recipe-box" href="{{ recipe.source_url }}" target="_blank" alt="{{ recipe.source }}">
-                  <div class="recipe-head">
-                    <div>
-                      <i data-feather="clock"></i>
-                      <h3>15min</h3>
-                    </div>
-                    <h2 class="recipe-title">{{ recipe.name }}</h2>
-                    <div>
-                      <h3>{{ recipe.people }}</h3>
-                      <i data-feather="users"></i>
-                    </div>
+            {% for recipe in recipes %}
+            <div class="recipe-box-container">
+              <a class="recipe-box" href="{{ recipe.source_url }}" target="_blank" alt="{{ recipe.source }}">
+                <div class="recipe-head">
+                  <div>
+                    <i data-feather="clock"></i>
+                    <h3>15min</h3>
                   </div>
+                  <h2 class="recipe-title">{{ recipe.name }}</h2>
+                  <div>
+                    <h3>{{ recipe.people }}</h3>
+                    <i data-feather="users"></i>
+                  </div>
+                </div>
 
-                  <img class="recipe-thumbanail" src="{{ recipe.image }}" alt="jedzonko_1" />
+                <img class="recipe-thumbanail" src="{{ recipe.image }}" alt="jedzonko_1" />
 
 
-                  <div class="recipe-info-container">
-                    <div class="info-column">
+                <div class="recipe-info-container">
+                  <div class="info-column">
 
-                      {% for ingridient in recipe.ingredients_list %}
-                      <p>{{ ingridient }}</p>
-                      {% endfor %}
-                    </div>
-                    <div class="info-column">
-                      {% for a in recipe.nutrients %}
-                      <p>{{a.name}}: {{a.quantity}}{{a.unit}}</p>
-                      {% endfor %}
-                    </div>
-                </a>
-              </div>
-
-              {% endfor %}
+                    {% for ingridient in recipe.ingredients_list %}
+                    <p>{{ ingridient }}</p>
+                    {% endfor %}
+                  </div>
+                  <div class="info-column">
+                    {% for a in recipe.nutrients %}
+                    <p>{{a.name}}: {{a.quantity}}{{a.unit}}</p>
+                    {% endfor %}
+                  </div>
+                </div>
+              </a>
             </div>
+
+            {% endfor %}
           </div>
         </div>
       </div>
+    </div>
 
 
 
 
 
-      <div class="row footer">
-        <div class="col-12">
-          <footer>
-            <p>© 2020 Random Team</p>
-          </footer>
-        </div>
+    <div class="row footer">
+      <div class="col-12">
+        <footer>
+          <p>© 2020 Random Team</p>
+        </footer>
       </div>
+    </div>
   </div>
 
   <!-- JavaScript libraries and scripts -->

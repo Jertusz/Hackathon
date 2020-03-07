@@ -31,9 +31,7 @@
     <p id="js-message">Aby wyświetlić stronę musisz włączyć JavaScript</p>
   </div>
 
-  <div class=".container-fluid">
-
-
+  <div class="container-fluid">
 
 
     <div class="row">
@@ -57,37 +55,39 @@
           <div class="carousel">
 
             {% for recipe in recipes %}
-            <a class="recipe-box" href="{{ recipe.source_url }}" target="_blank" alt="{{ recipe.source }}">
-              <div class="recipe-head">
-                <div>
-                  <i data-feather="clock"></i>
-                  <h3>15min</h3>
+            <div class="recipe-box-container">
+              <a class="recipe-box" href="{{ recipe.source_url }}" target="_blank" alt="{{ recipe.source }}">
+                <div class="recipe-head">
+                  <div>
+                    <i data-feather="clock"></i>
+                    <h3>15min</h3>
+                  </div>
+                  <h2 class="recipe-title">{{ recipe.name }}</h2>
+                  <div>
+                    <h3>{{ recipe.people }}</h3>
+                    <i data-feather="users"></i>
+                  </div>
                 </div>
-                <h2 class="recipe-title">{{ recipe.name }}</h2>
-                <div>
-                  <h3>{{ recipe.people }}</h3>
-                  <i data-feather="users"></i>
+
+                <img class="recipe-thumbanail" src="{{ recipe.image }}" alt="jedzonko_1" />
+
+                <div class="recipe-info-container">
+                  <div class="info-column">
+                    <ul>
+                      {% for ingridient in recipe.ingredients_list %}
+                      <li>{{ ingridient }}</li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                  <div class="info-column">
+                    {% for nutrient in recipe.nutrients %}
+                    <p>{{ nutrient }}:
+                    </p>
+                    {% endfor %}
+                  </div>
                 </div>
-              </div>
-
-              <img class="recipe-thumbanail" src="{{ recipe.image }}" alt="jedzonko_1" />
-
-              <div class="recipe-info-container">
-                <div class="info-column">
-
-                  {% for ingridient in recipe.ingredients_list %}
-                  <p>{{ ingridient }}</p>
-                  {% endfor %}
-                </div>
-                <div class="info-column">
-                  {% for nutrient in recipe.nutrients %}
-                  <p>{{ nutrient }}:
-                  </p>
-                  {% endfor %}
-                </div>
-              </div>
-            </a>
-
+              </a>
+            </div>
 
             {% endfor %}
           </div>

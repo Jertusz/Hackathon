@@ -45,9 +45,10 @@ def parse_recipe(unparsed_recipe):
         quantity = recka['totalNutrients'][something]['quantity']
         unit = recka['totalNutrients'][something]['unit']
         name = recka['totalNutrients'][something]['label']
-        tmp = {'quantity': quantity, 'unit': unit}
+        tmp = [quantity, unit]
         nutrients[name] = tmp
     p_recipe['nutrients'] = nutrients
+
     return p_recipe
 
 

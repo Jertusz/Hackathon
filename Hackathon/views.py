@@ -34,6 +34,7 @@ def parse_recipe(unparsed_recipe):
     recka = unparsed_recipe['recipe']
     p_recipe['name'] = recka['label']
     p_recipe['image'] = recka['image']
+    p_recipe['people'] = recka['yield']
     p_recipe['source'] = recka['source']
     p_recipe['source_url'] = recka['url']
     p_recipe['tags'] = recka['healthLabels']

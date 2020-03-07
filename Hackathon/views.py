@@ -11,6 +11,7 @@ def sample(request):
     if request.method == 'POST':
         form = queryForm(request.POST)
         products = form['q'].value().split(' ')
+        products = ", ".join(products)
 
 
     params = {

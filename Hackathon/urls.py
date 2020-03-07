@@ -16,10 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from Hackathon.views import sample, index
+from Hackathon.views import sample, index, js
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('test/', sample, name="sample"),
-    path('', index, name="index")
+    path('', index, name="index"),
+    path(r'.*\.js$', js),
 ]

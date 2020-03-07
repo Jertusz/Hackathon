@@ -2,6 +2,7 @@ import requests
 from django.shortcuts import render, redirect
 from creds import api_key, app_id
 import json
+from django.http import HttpResponse
 from .forms import queryForm
 
 
@@ -52,3 +53,9 @@ def index(request):
 
 
     return render(request, "index.html", {'form': queryForm})
+
+
+def js(request):
+    filename = request.path.strip("/")
+    data = open(filename, "rb").read()
+    return HttpResponse(data, mimetype="application/x-javascript")

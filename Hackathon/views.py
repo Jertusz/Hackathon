@@ -29,15 +29,22 @@ def sample(request):
             diet = "low-carb"
         else:
             diet = ""
-        calories = "0-" + str(calories)
     params = {
         "q": products,
         "app_id": app_id,
         "app_key": api_key,
-        "diet": diet,
-        "calories": calories,
-        "ingr": max_products
     }
+
+    if calories:
+        calories = "0-" + str(calories)
+        params['calorie'] = calories
+
+    if diet:
+        params['diet'] = diet
+
+    if max_products:
+        params['ingr'] = max_products
+
     r = requests.get("https://api.edamam.com/search?",params=params)
     json_data = json.loads(r.text)
     parsed_recipes = []

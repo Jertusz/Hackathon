@@ -1,0 +1,26 @@
+.textfield{
+
+    width: 50em;
+}
+.but{
+	left: 10%;
+    width: 10em;
+	
+}
+.gora{
+	display:flex;
+	background-color: powderblue;
+	margin-top: 3%;
+	padding: 10px;
+	flex-direction: row;
+}
+.textfield_container{
+	display:flex;
+	
+
+}
+.but_container{
+
+	display:flex;
+
+}

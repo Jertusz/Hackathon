@@ -4,6 +4,8 @@ Recipe format
 
 name = string
 
+people = ilosc osob
+
 image = link do zdjecia
 
 source = nazwa zrodla

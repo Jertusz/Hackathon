@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <head>
+    {% load static %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -15,7 +16,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-  <link href="stylesheets/style.min.css" rel="stylesheet">
+  <link href="{% static "stylesheets/style.min.css" %}"rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto|Spartan&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 
@@ -256,12 +257,12 @@
   </div>
 
   <!-- JavaScript libraries and scripts -->
-  <script src="js/jquery-3.3.1.min.js" type="application/javascript"></script>
-  <script src="js/feather.min.js" type="application/javascript"></script>
-  <script src="js/slick.min.js" type="application/javascript"></script>
+  <script src="{% static "js/jquery-3.3.1.min.js" %}"type="application/javascript"></script>
+  <script src="{% static "js/feather.min.js" %}"type="application/javascript"></script>
+  <script src="{% static "js/slick.min.js" %}"type="application/javascript"></script>
 
-  <script src="js/load.js" type="application/javascript"></script>
-  <script src="js/carousel.js" type="application/javascript"></script>
+  <script src="{% static "js/load.js" %}" type="application/javascript"></script>
+  <script src="{% static "js/carousel.js" %}" type="application/javascript"></script>
 
   <script>
     feather.replace()

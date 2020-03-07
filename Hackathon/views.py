@@ -40,15 +40,13 @@ def parse_recipe(unparsed_recipe):
     p_recipe['source_url'] = recka['url']
     p_recipe['tags'] = recka['healthLabels']
     p_recipe['ingredients_list'] = recka['ingredientLines']
-    nutrients = {}
+    nutrients = []
     for something in recka['totalNutrients']:
         quantity = recka['totalNutrients'][something]['quantity']
         unit = recka['totalNutrients'][something]['unit']
         name = recka['totalNutrients'][something]['label']
-        tmp = [quantity, unit]
-        nutrients[name] = tmp
+        nutrients.append({'name':name, 'quantity':quantity, 'unit': unit})
     p_recipe['nutrients'] = nutrients
-
     return p_recipe
 
 

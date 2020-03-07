@@ -15,6 +15,11 @@ def sample(request):
         calories = form['calories'].value()
         diet = form['diet'].value()
         max_products = form['max_products'].value()
+        print("tu", calories, diet, max_products)
+        if calories is None:
+            calories = 2000
+        if max_products is None:
+            max_products = 30
         if diet == "0":
             diet == "low-sodium"
         elif diet == "1":
@@ -30,14 +35,23 @@ def sample(request):
         else:
             diet = ""
         calories = "0-" + str(calories)
-    params = {
-        "q": products,
-        "app_id": app_id,
-        "app_key": api_key,
-        "diet": diet,
-        "calories": calories,
-        "ingr": max_products
-    }
+    if diet == "":
+        params = {
+            "q": products,
+            "app_id": app_id,
+            "app_key": api_key,
+            "calories": calories,
+            "ingr": max_products
+        }
+    else:
+        params = {
+            "q": products,
+            "app_id": app_id,
+            "app_key": api_key,
+            "diet": diet,
+            "calories": calories,
+            "ingr": max_products
+        }
     r = requests.get("https://api.edamam.com/search?",params=params)
     json_data = json.loads(r.text)
     parsed_recipes = []

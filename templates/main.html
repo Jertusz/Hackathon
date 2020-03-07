@@ -31,7 +31,7 @@
     <p id="js-message">Aby wyświetlić stronę musisz włączyć JavaScript</p>
   </div>
 
-  <div class=".container-fluid">
+  <div class="container-fluid">
 
 
 
@@ -80,10 +80,9 @@
                   {% endfor %}
                 </div>
                 <div class="info-column">
-                  {% for nutrient in recipe.nutrients %}
-                  <p>{{ nutrient }}:
-                  </p>
-                  {% endfor %}
+                {% for a in recipe.nutrients %}
+                  <p>{{a.name}}: {{a.quantity}}{{a.unit}}</p>
+                {% endfor %}
                 </div>
               </div>
             </a>

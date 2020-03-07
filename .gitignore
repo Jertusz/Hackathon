@@ -1,3 +1,7 @@
 # Dev files
 /venv
 /.idea
+Hackathon/__pycache__/
+creds.py
+/dev
+__pycache__/

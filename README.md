@@ -6,6 +6,8 @@ name = string
 
 image = link do zdjecia
 
+people = ilosc osob
+
 source = nazwa zrodla
 
 source_url = link do zrodla

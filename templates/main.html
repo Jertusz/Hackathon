@@ -5,6 +5,8 @@
     <title>Title</title>
 </head>
 <body>
-    {{ recipes }}
+{% for recipe in recipes %}
+    <p>{{ recipe }}</p>
+{% endfor %}
 </body>
 </html>

@@ -35,7 +35,7 @@ def parse_recipe(unparsed_recipe):
     recka = unparsed_recipe['recipe']
     p_recipe['name'] = recka['label']
     p_recipe['image'] = recka['image']
-    p_recipe['people'] = recka['yield']
+    p_recipe['people'] = str(recka['yield'])
     p_recipe['source'] = recka['source']
     p_recipe['source_url'] = recka['url']
     p_recipe['tags'] = recka['healthLabels']
@@ -45,15 +45,17 @@ def parse_recipe(unparsed_recipe):
         quantity = recka['totalNutrients'][something]['quantity']
         unit = recka['totalNutrients'][something]['unit']
         name = recka['totalNutrients'][something]['label']
+        print(quantity, unit)
         tmp = [quantity, unit]
         nutrients[name] = tmp
     p_recipe['nutrients'] = nutrients
+    for shit in p_recipe['nutrients']:
+        print(p_recipe['nutrients'][shit])
 
     return p_recipe
 
 
 def index(request):
-
 
     return render(request, "index.html", {'form': queryForm})
 

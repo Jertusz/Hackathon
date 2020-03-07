@@ -2,18 +2,23 @@ import requests
 from django.shortcuts import render, redirect
 from creds import api_key, app_id
 import json
+from .forms import queryForm
 
 
 def sample(request):
+
+    if request.method == 'POST':
+        form = queryForm(request.POST)
+        products = form['q'].value().split(' ')
+
+
     params = {
-        "q": ["chicken", "cheese"],
+        "q": products,
         "app_id": app_id,
         "app_key": api_key
     }
     r = requests.get("https://api.edamam.com/search?",params=params)
-    print(r)
     json_data = json.loads(r.text)
-    print(json_data)
     parsed_recipes = []
     for recipe in json_data["hits"]:
         parsed_recipes.append(parse_recipe(recipe))
@@ -21,6 +26,7 @@ def sample(request):
         'recipes': parsed_recipes,
     }
     return render(request, "main.html", context)
+
 
 def parse_recipe(unparsed_recipe):
     p_recipe = {}
@@ -41,3 +47,8 @@ def parse_recipe(unparsed_recipe):
     p_recipe['nutrients'] = nutrients
     return p_recipe
 
+
+def index(request):
+
+
+    return render(request, "index.html", {'form': queryForm})

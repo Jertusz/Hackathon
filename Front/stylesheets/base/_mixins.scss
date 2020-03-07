@@ -1,0 +1,39 @@
+@mixin transition($options...) {
+  transition: $options;
+  -webkit-transition: $options;
+  -o-transition: $options;
+}
+@mixin transition-delay($options...) {
+  transition-delay: $options;
+  -webkit-transition-delay: $options;
+  -o-transition-delay: $options;
+}
+@mixin transform($options) {
+  transform: $options;
+  -webkit-transform: $options;
+  -ms-transform: $options;
+}
+@mixin box-shadow($options) {
+  box-shadow: $options;
+  -webkit-box-shadow: $options;
+}
+// Flex
+@mixin flex {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+@mixin flex-direction($options) {
+  flex-direction: $options;
+  -webkit-flex-direction: $options;
+}
+@mixin flex-wrap($options) {
+  flex-wrap: $options;
+  -webkit-flex-wrap: $options;
+}
+@mixin align-items($options) {
+  align-items: $options;
+  -webkit-align-items: $options;
+}

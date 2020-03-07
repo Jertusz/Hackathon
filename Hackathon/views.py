@@ -68,8 +68,6 @@ def parse_recipe(unparsed_recipe):
         tmp = [quantity, unit]
         nutrients[name] = tmp
     p_recipe['nutrients'] = nutrients
-    for shit in p_recipe['nutrients']:
-        print(p_recipe['nutrients'][shit])
 
     return p_recipe
 

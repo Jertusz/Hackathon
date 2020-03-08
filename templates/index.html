@@ -43,7 +43,6 @@
           <p>Type your ingredients</p>
 
           <div class="form-group">
-            <label for="query">Search</label>
             <input type="text"
               class="form-control" name="query" id="query" placeholder="Enter products">
           </div>
@@ -82,7 +81,7 @@
             </div>
             {% csrf_token %}
             {{ form }}
-            
+
             <button class="btn btn-primary" type="submit">Ok</button>
           </form>
         </div>
@@ -107,9 +106,6 @@
   <script src="{% static "js/carousel.js" %}" type="application/javascript"></script>
   <script src="{% static "js/query.js" %}" type="application/javascript"></script>
 
-  <script>
-    feather.replace()
-  </script>
 
 </body>
 

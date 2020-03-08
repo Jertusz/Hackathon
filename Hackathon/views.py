@@ -12,10 +12,10 @@ def sample(request):
         form = queryForm(request.POST)
         products = form['q'].value().split(' ')
         products = ", ".join(products)
+
         calories = form['calories'].value()
         diet = form['diet'].value()
         max_products = form['max_products'].value()
-        print("tu", calories, diet, max_products)
         if calories is None:
             calories = 2000
         if max_products is None:
@@ -34,6 +34,9 @@ def sample(request):
             diet = "low-carb"
         else:
             diet = ""
+
+
+
 
     params = {
         "q": products,
@@ -68,25 +71,25 @@ def parse_recipe(unparsed_recipe):
     recka = unparsed_recipe['recipe']
     p_recipe['name'] = recka['label']
     p_recipe['image'] = recka['image']
-    p_recipe['people'] = str(recka['yield'])
+    p_recipe['people'] = recka['yield']
     p_recipe['source'] = recka['source']
     p_recipe['source_url'] = recka['url']
     p_recipe['tags'] = recka['healthLabels']
     p_recipe['ingredients_list'] = recka['ingredientLines']
-    nutrients = []
+    nutrients = {}
     for something in recka['totalNutrients']:
         quantity = recka['totalNutrients'][something]['quantity']
         unit = recka['totalNutrients'][something]['unit']
         name = recka['totalNutrients'][something]['label']
-        nutrients.append({'name':name, 'quantity':quantity, 'unit': unit})
+        tmp = [quantity, unit]
+        nutrients[name] = tmp
     p_recipe['nutrients'] = nutrients
 
     return p_recipe
 
 
-
-
 def index(request):
+
 
     return render(request, "index.html", {'form': queryForm})
 

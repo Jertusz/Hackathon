@@ -71,6 +71,8 @@ def parse_recipe(unparsed_recipe):
     p_recipe['source_url'] = recka['url']
     p_recipe['tags'] = recka['healthLabels']
     p_recipe['ingredients_list'] = recka['ingredientLines']
+    p_recipe['time'] = int(p_recipe['people']) * 10
+    # p_recipe['time'] = recka['totalNutrients']['energy']['quantity']//20
     nutrients = []
     for something in recka['totalNutrients']:
         quantity = recka['totalNutrients'][something]['quantity']

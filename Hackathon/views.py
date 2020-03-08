@@ -38,6 +38,7 @@ def sample(request):
         "q": products,
         "app_id": app_id,
         "app_key": api_key,
+        "to": 50
     }
 
     if calories:

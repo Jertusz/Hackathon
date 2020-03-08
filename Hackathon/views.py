@@ -3,21 +3,18 @@ from django.shortcuts import render, redirect
 from creds import api_key, app_id
 import json
 from django.http import HttpResponse
-from .forms import queryForm
 
 
 def sample(request):
 
     if request.method == 'POST':
-        form = queryForm(request.POST)
-        products = form['q'].value().split(' ')
+        products = request.POST.get('query').split(' ')
         products = ", ".join(products)
 
-        calories = form['calories'].value()
-        diet = form['diet'].value()
-        max_products = form['max_products'].value()
-        if calories is None:
-            calories = 2000
+        diet = request.POST.get('diet')
+        calories = request.POST.get('calories')
+        max_products = request.POST.get('ingredients')
+
         if max_products is None:
             max_products = 30
         if diet == "0":
@@ -35,9 +32,6 @@ def sample(request):
         else:
             diet = ""
 
-
-
-
     params = {
         "q": products,
         "app_id": app_id,
@@ -54,8 +48,7 @@ def sample(request):
     if max_products:
         params['ingr'] = max_products
 
-
-    r = requests.get("https://api.edamam.com/search?",params=params)
+    r = requests.get("https://api.edamam.com/search?", params=params)
     json_data = json.loads(r.text)
     parsed_recipes = []
     for recipe in json_data["hits"]:
@@ -81,7 +74,8 @@ def parse_recipe(unparsed_recipe):
         quantity = recka['totalNutrients'][something]['quantity']
         unit = recka['totalNutrients'][something]['unit']
         name = recka['totalNutrients'][something]['label']
-        nutrients.append({'name': name, 'quantity': "%.2f" % quantity, 'unit': unit})
+        nutrients.append(
+            {'name': name, 'quantity': "%.2f" % quantity, 'unit': unit})
     p_recipe['nutrients'] = nutrients
 
     return p_recipe
@@ -89,8 +83,7 @@ def parse_recipe(unparsed_recipe):
 
 def index(request):
 
-
-    return render(request, "index.html", {'form': queryForm})
+    return render(request, "index.html", {})
 
 
 def js(request):

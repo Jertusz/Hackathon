@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Random Team</title>
+
+  <link rel="icon" type="image/png" href="favicon.png') }}" />
+
+  <meta charset="UTF-8">
+  <meta name="description" content="Stronka z przepisami">
+  <meta name="keywords" content="przepisy,jedzenie">
+  <meta name="author" content="Random Team">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <link href="{% static "stylesheets/style.min.css" %}" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Spartan&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+
+
+</head>
+
+<body>
+
+  <!-- Hide before load -->
+  <div style="visibility:visible; opacity: 1;" id="hideAll">
+    <div class="loader"></div>
+    <p id="js-message">Aby wyświetlić stronę musisz włączyć JavaScript</p>
+  </div>
+
+  <div class="container-fluid">
+
+
+
+
+    <div class="row">
+      <div class="col-12">
+        <div class="title">
+          <form action="test/" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="OK">
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+
+        <div class="recipes-container">
+
+
+          <div class="carousel">
+
+            {% for recipe in recipes %}
+            <a class="recipe-box" href="{{ recipe.source_url }}" target="_blank" alt="{{ recipe.source }}">
+              <div class="recipe-head">
+                <div>
+                  <i data-feather="clock"></i>
+                  <h3>15min</h3>
+                </div>
+                <h2 class="recipe-title">{{ recipe.name }}</h2>
+                <div>
+                  <h3>{{ recipe.people }}</h3>
+                  <i data-feather="users"></i>
+                </div>
+              </div>
+
+              <img class="recipe-thumbanail" src="{{ recipe.image }}" alt="jedzonko_1" />
+
+              <div class="recipe-info-container">
+                <div class="info-column">
+
+                  {% for ingridient in recipe.ingredients_list %}
+                  <p>d{{ ingridient }}</p>
+                  {% endfor %}
+                </div>
+                <div class="info-column">
+                {% for a in recipe.nutrients %}
+                  <p>{{a.name}}: {{a.quantity}}{{a.unit}}</p>
+                {% endfor %}
+                </div>
+              </div>
+            </a>
+
+
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <div class="row footer">
+      <div class="col-12">
+        <footer>
+          <p>© 2020 Random Team</p>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript libraries and scripts -->
+  <script src="{% static "js/jquery-3.3.1.min.js" %}" type="application/javascript"></script>
+  <script src="{% static "js/feather.min.js" %}" type="application/javascript"></script>
+  <script src="{% static "js/slick.min.js" %}" type="application/javascript"></script>
+
+  <script src="{% static "js/load.js" %}" type="application/javascript"></script>
+  <script src="{% static "js/carousel.js" %}" type="application/javascript"></script>
+
+  <script>
+    feather.replace()
+  </script>
+
+</body>
+
+</html>

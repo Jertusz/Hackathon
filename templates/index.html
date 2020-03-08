@@ -42,22 +42,24 @@
 
           <p>Type your ingredients</p>
 
+          <div class="form-group">
+            <label for="query">Search</label>
+            <input type="text"
+              class="form-control" name="query" id="query" placeholder="Enter products">
+          </div>
           <form action="test/" method="post">
-            <div class="form-group">
-              <label for="query">Search</label>
-              <input type="text"
-                class="form-control" name="query" id="query" placeholder="Enter products">
+            <div class="tags">
             </div>
             <div class="form-group">
               <label for="diet">Diet</label>
               <select class="form-control" name="diet" id="diet">
                 <option value=""></option>
-                <option value="0">low-sodium</option>
-                <option value="1">balanced</option>
-                <option value="2">high-protein</option>
-                <option value="3">high-fiver</option>
-                <option value="4">low-fat</option>
-                <option value="5">low-carb</option>
+                <option value="0">Low sodium</option>
+                <option value="1">Balanced</option>
+                <option value="2">High protein</option>
+                <option value="3">High fiver</option>
+                <option value="4">Low fat</option>
+                <option value="5">Low carb</option>
               </select>
             </div>
             <div class="form-group">
@@ -79,17 +81,13 @@
               </select>
             </div>
             {% csrf_token %}
-            <!-- {{ form }} -->
-            <div class="tags">
-                          </div>
+            {{ form }}
+            
             <button class="btn btn-primary" type="submit">Ok</button>
           </form>
         </div>
       </div>
     </div>
-
-
-
 
     <div class="row footer footer-landing">
       <div class="col-12">

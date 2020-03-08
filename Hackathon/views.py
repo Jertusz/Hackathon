@@ -3,12 +3,14 @@ from django.shortcuts import render, redirect
 from creds import api_key, app_id
 import json
 from django.http import HttpResponse
+from .forms import queryForm
 
 
 def sample(request):
 
     if request.method == 'POST':
-        products = request.POST.get('query').split(' ')
+        form = queryForm(request.POST)
+        products = form['q'].value().split(' ')
         products = ", ".join(products)
 
         diet = request.POST.get('diet')
@@ -83,7 +85,7 @@ def parse_recipe(unparsed_recipe):
 
 def index(request):
 
-    return render(request, "index.html", {})
+    return render(request, "index.html", {'form': queryForm})
 
 
 def js(request):

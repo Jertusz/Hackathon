@@ -34,3 +34,14 @@ document.getElementById("query").addEventListener(
   },
   false
 );
+
+
+$(".btn-primary").click(function() {
+  var form_field = document.getElementById("query");
+  var hidden_form_field = document.getElementById("id_q");
+
+  if (form_field.value.length > 0) {
+    hidden_form_field.value =
+      hidden_form_field.value + " " + form_field.value;
+  }
+});

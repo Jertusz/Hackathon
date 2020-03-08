@@ -31,6 +31,7 @@
     <p id="js-message">Aby wyświetlić stronę musisz włączyć JavaScript</p>
   </div>
 
+  <img class="background-img" src="{% static "bg2.jpg" %}">
   <div class="container-fluid">
 
 
@@ -49,6 +50,8 @@
 
         <div class="recipes-container">
 
+          <a id="arrow-left" class="carousel-arrows"><i data-feather="chevron-left"></i></a>
+          <a id="arrow-right" class="carousel-arrows"><i data-feather="chevron-right"></i></a>
 
           <div class="carousel">
 
@@ -57,9 +60,11 @@
 
               <h2 class="recipe-title">{{ recipe.name }}</h2>
 
+              <div class="img-container">
+                <img class="recipe-thumbanail" src="{{ recipe.image }}" alt="jedzonko_1" />
+              </div>
 
-              <img class="recipe-thumbanail" src="{{ recipe.image }}" alt="jedzonko_1" />
-
+              <a class="button" href="{{ recipe.source_url }}" target="_blank" alt="{{ recipe.source }}">SHOW RECIPE</a>
 
               <div class="recipe-info-container">
                 <div class="info-column">
@@ -82,17 +87,19 @@
                   </ul>
                 </div>
                 <div class="info-column">
-                  {% for a in recipe.nutrients %}
-                  <p>{{a.name}}: {{a.quantity}}{{a.unit}}</p>
-                  {% endfor %}
+                  <ul>
+                    {% for a in recipe.nutrients %}
+                    <li>{{a.name}}: {{a.quantity}}{{a.unit}}</li>
+                    {% endfor %}</ul>
                 </div>
 
-                <a class="button" href="{{ recipe.source_url }}" target="_blank" alt="{{ recipe.source }}">
               </div>
 
 
               <a class="expand-button">
-                POKAŻ MI PRZEPIS
+                <i data-feather="arrow-down"></i>
+                Show more nutritional values
+                <i data-feather="arrow-down"></i>
               </a>
             </div>
 
@@ -124,10 +131,6 @@
   <script src="{% static "js/load.js" %}" type="application/javascript"></script>
   <script src="{% static "js/carousel.js" %}" type="application/javascript"></script>
   <script src="{% static "js/card-expand.js" %}" type="application/javascript"></script>
-
-  <script>
-    feather.replace()
-  </script>
 
 </body>
 

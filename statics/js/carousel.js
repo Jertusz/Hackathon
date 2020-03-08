@@ -2,14 +2,29 @@ $(document).ready(function() {
   $('.carousel').slick({
 
     centerMode: true,
-    centerPadding: '360px',
+    centerPadding: '500px',
     slidesToShow: 1,
-    arrows: true,
+    arrows: false,
     infinite: false,
     responsive: [{
+        breakpoint: 1600,
+        settings: {
+          centerMode: true,
+          centerPadding: '350px',
+          slidesToShow: 1
+        }
+      },
+      {
+        breakpoint: 1400,
+        settings: {
+          centerMode: true,
+          centerPadding: '200px',
+          slidesToShow: 1
+        }
+      },
+      {
         breakpoint: 1024,
         settings: {
-          arrows: true,
           centerMode: true,
           centerPadding: '100px',
           slidesToShow: 1
@@ -18,7 +33,6 @@ $(document).ready(function() {
       {
         breakpoint: 768,
         settings: {
-          arrows: false,
           centerMode: true,
           centerPadding: '40px',
           slidesToShow: 1
@@ -26,4 +40,12 @@ $(document).ready(function() {
       }
     ]
   });
+});
+
+$("#arrow-left").click(function() {
+  $('.carousel').slick('slickPrev');
+});
+
+$("#arrow-right").click(function() {
+  $('.carousel').slick('slickNext');
 });

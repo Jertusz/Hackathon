@@ -1,8 +1,7 @@
-
 /* -----------------------------------------------
 /* Display JavaScript requirement message
 /* ----------------------------------------------- */
-$( "#js-message" ).toggle(false);
+$("#js-message").toggle(false);
 
 
 /* -----------------------------------------------
@@ -11,5 +10,6 @@ $( "#js-message" ).toggle(false);
 window.onload = function() {
   document.getElementById("hideAll").style.opacity = "0";
   document.getElementById("hideAll").style.visibility = "hidden";
-}
 
+  feather.replace()
+}

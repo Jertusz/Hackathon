@@ -38,11 +38,7 @@
     <div class="row">
       <div class="col-12">
         <div class="title">
-          <form action="test/" method="post">
-            {% csrf_token %}
-            {{ form }}
-            <input type="submit" value="OK">
-          </form>
+
         </div>
       </div>
     </div>
@@ -57,36 +53,46 @@
           <div class="carousel">
 
             {% for recipe in recipes %}
-            <div class="recipe-box-container">
-              <a class="recipe-box" href="{{ recipe.source_url }}" target="_blank" alt="{{ recipe.source }}">
-                <div class="recipe-head">
-                  <div>
-                    <i data-feather="clock"></i>
-                    <h3>15min</h3>
+            <div id="recipe_box_{{ forloop.counter0 }}" class="recipe-box">
+
+              <h2 class="recipe-title">{{ recipe.name }}</h2>
+
+
+              <img class="recipe-thumbanail" src="{{ recipe.image }}" alt="jedzonko_1" />
+
+
+              <div class="recipe-info-container">
+                <div class="info-column">
+
+                  <div class="time-people-container">
+                    <div class="time-people-block">
+                      <i data-feather="clock"></i>
+                      <h3>15min</h3>
+                    </div>
+                    <div class="time-people-block">
+                      <i data-feather="users"></i>
+                      <h3>{{ recipe.people }}</h3>
+                    </div>
                   </div>
-                  <h2 class="recipe-title">{{ recipe.name }}</h2>
-                  <div>
-                    <h3>{{ recipe.people }}</h3>
-                    <i data-feather="users"></i>
-                  </div>
-                </div>
-
-                <img class="recipe-thumbanail" src="{{ recipe.image }}" alt="jedzonko_1" />
-
-
-                <div class="recipe-info-container">
-                  <div class="info-column">
-
+                  <h3>Ingredients:</h3>
+                  <ul>
                     {% for ingridient in recipe.ingredients_list %}
-                    <p>{{ ingridient }}</p>
+                    <li>{{ ingridient }}</li>
                     {% endfor %}
-                  </div>
-                  <div class="info-column">
-                    {% for a in recipe.nutrients %}
-                    <p>{{a.name}}: {{a.quantity}}{{a.unit}}</p>
-                    {% endfor %}
-                  </div>
+                  </ul>
                 </div>
+                <div class="info-column">
+                  {% for a in recipe.nutrients %}
+                  <p>{{a.name}}: {{a.quantity}}{{a.unit}}</p>
+                  {% endfor %}
+                </div>
+
+                <a class="button" href="{{ recipe.source_url }}" target="_blank" alt="{{ recipe.source }}">
+              </div>
+
+
+              <a class="expand-button">
+                POKAŻ MI PRZEPIS
               </a>
             </div>
 
@@ -117,6 +123,7 @@
 
   <script src="{% static "js/load.js" %}" type="application/javascript"></script>
   <script src="{% static "js/carousel.js" %}" type="application/javascript"></script>
+  <script src="{% static "js/card-expand.js" %}" type="application/javascript"></script>
 
   <script>
     feather.replace()

@@ -5,6 +5,7 @@ $(document).ready(function() {
     centerPadding: '360px',
     slidesToShow: 1,
     arrows: true,
+    infinite: false,
     responsive: [{
         breakpoint: 1024,
         settings: {

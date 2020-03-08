@@ -23,6 +23,7 @@ $lg: 992px;
 $xl: 1200px;
 
 $border-radius: 5px;
+$border-radius-big: 25px;
 
 // ====== ANIMATION ====== //
 $transition-duration: .3s;
@@ -32,4 +33,4 @@ $text-font: 'Roboto', sans-serif;
 $header-font: 'Roboto', sans-serif;
 
 // ====== SHADOWS ====== //
-$inset-shadow: inset 0 0 5px $header-color;
+$inset-shadow: inset 0 0 0 25px $header-color;

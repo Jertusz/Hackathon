@@ -143,15 +143,18 @@
     bottom: 0;
     width: 100%;
     text-align: center;
-    line-height: 4;
+    line-height: 1;
     white-space: nowrap;
-    @media(min-width: $md) {
-      font-size: 1.2em;
-    }
     color: $color-primary;
     border-bottom-left-radius: $border-radius;
     border-bottom-right-radius: $border-radius;
     background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(0,0,0,.8));
-    text-shadow: 1px 0 $color-primary-darker, 0 1px $color-primary-dark, 1px 0 $color-primary-dark, 0 -1px $color-primary-dark;
+    svg{
+      width: 4em;
+      height: 4em;
+    }
+    @media(min-width: $md) {
+      font-size: 1.2em;
+    }
   }
 }

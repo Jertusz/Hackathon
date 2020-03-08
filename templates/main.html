@@ -87,6 +87,7 @@
                   </ul>
                 </div>
                 <div class="info-column">
+                  <h3>Nutrients:</h3>
                   <ul>
                     {% for a in recipe.nutrients %}
                     <li>{{a.name}}: {{a.quantity}}{{a.unit}}</li>
@@ -97,9 +98,7 @@
 
 
               <a class="expand-button">
-                <i data-feather="arrow-down"></i>
-                Show more nutritional values
-                <i data-feather="arrow-down"></i>
+                <i data-feather="chevron-down"></i>
               </a>
             </div>
 

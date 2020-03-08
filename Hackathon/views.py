@@ -12,10 +12,10 @@ def sample(request):
         form = queryForm(request.POST)
         products = form['q'].value().split(' ')
         products = ", ".join(products)
+
         calories = form['calories'].value()
         diet = form['diet'].value()
         max_products = form['max_products'].value()
-        print("tu", calories, diet, max_products)
         if calories is None:
             calories = 2000
         if max_products is None:
@@ -34,6 +34,9 @@ def sample(request):
             diet = "low-carb"
         else:
             diet = ""
+
+
+
 
     params = {
         "q": products,

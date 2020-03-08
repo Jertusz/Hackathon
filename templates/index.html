@@ -20,6 +20,7 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto|Spartan&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
 
@@ -41,13 +42,47 @@
 
           <p>Type your ingredients</p>
 
-          <input type="text" id="query" name="query">
           <form action="test/" method="post">
+            <div class="form-group">
+              <label for="query">Search</label>
+              <input type="text"
+                class="form-control" name="query" id="query" placeholder="Enter products">
+            </div>
+            <div class="form-group">
+              <label for="diet">Diet</label>
+              <select class="form-control" name="diet" id="diet">
+                <option value=""></option>
+                <option value="0">low-sodium</option>
+                <option value="1">balanced</option>
+                <option value="2">high-protein</option>
+                <option value="3">high-fiver</option>
+                <option value="4">low-fat</option>
+                <option value="5">low-carb</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="calories">Max calories</label>
+              <input type="number"
+                class="form-control" name="calories" id="calories" min=0 placeholder="" step="100">
+            </div>
+            <div class="form-group">
+              <label for="ingredients">Max ingredients</label>
+              <select class="form-control" name="ingredients" id="ingredients">
+                <option value=""></option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+              </select>
+            </div>
             {% csrf_token %}
-            {{ form }}
+            <!-- {{ form }} -->
             <div class="tags">
                           </div>
-            <input type="submit" value="OK">
+            <button class="btn btn-primary" type="submit">Ok</button>
           </form>
         </div>
       </div>
